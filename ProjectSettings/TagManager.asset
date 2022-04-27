@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Zombie
+  - FloorDead
+  - Attack
+  - FxTemporaire
+  - ScoreCristal
+  - Life
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - ObjFront
+  - Chao
+  - Ground
+  - Ornament
+  - FloorDead
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: ObjBack
+    uniqueID: 278796487
+    locked: 0
+  - name: Enemy
+    uniqueID: 3228258059
+    locked: 0
+  - name: Player
+    uniqueID: 1544366997
+    locked: 0
+  - name: Attack
+    uniqueID: 1288895789
+    locked: 0
+  - name: ObjFront
+    uniqueID: 2569424917
+    locked: 0
+  - name: Chao
+    uniqueID: 1461385373
+    locked: 0
+  - name: Ornament
+    uniqueID: 3179088309
+    locked: 0
+  - name: Plataforms
+    uniqueID: 4119024167
+    locked: 0

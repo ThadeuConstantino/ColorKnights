@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90b13022761f4c4d96c8fb34caa83a1, type: 3}
+  m_Name: PlayerDatabase
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  _listPlayers:
+  - {fileID: 11400000, guid: bd10aeb7daec78e42ba98082e97e4594, type: 2}
+  - {fileID: 11400000, guid: fc583d5e781d0ae4689cb8487b870887, type: 2}
+  - {fileID: 11400000, guid: 907890d973e67f045a9ce52be798aac0, type: 2}
+  - {fileID: 11400000, guid: d580bb8a925d3354096389f8a8bc634b, type: 2}
+  - {fileID: 11400000, guid: 74223ce5779d203459547c7c379f28ab, type: 2}
+  - {fileID: 11400000, guid: acd7bfb8dc497cc48b695480b606d70c, type: 2}
+  - {fileID: 11400000, guid: 994b22e281e93284591e895a4044af49, type: 2}
+  - {fileID: 11400000, guid: 508f81433e20f504ab34254f8cd4fc8a, type: 2}
+  - {fileID: 11400000, guid: 14422771ac127384bb99932879ea6375, type: 2}
+  - {fileID: 11400000, guid: 0c1a46ffda1ecc347b22ebf815f4118e, type: 2}
+  totalPlayersGroup: 2
+  BattlesNewPlayer: 10
+  TotalBattles: 20
+  _selectedPlayers:
+  - {fileID: 11400000, guid: bd10aeb7daec78e42ba98082e97e4594, type: 2}
+  - {fileID: 11400000, guid: fc583d5e781d0ae4689cb8487b870887, type: 2}
