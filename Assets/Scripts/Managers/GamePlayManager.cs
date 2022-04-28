@@ -148,12 +148,13 @@ namespace GranGames.Managers
         IEnumerator DelayAttackEnemy()
         {
             currentPlayer.AnimAttack();
-            currentEnemy.Damage(currentPlayer._character.AttackPower);
+            currentEnemy.Damage(currentPlayer._character.AuxAttack);
             CheckHealthEnemy();
             yield return new WaitForSeconds(2f);
             SetCurrentGameState(_gsEnemyAttack);
             SetCurrentGuideMessage(DataGame.ENEMY_ATTACK);
             yield return new WaitForSeconds(1f);
+            currentEnemy.AnimAttack();
             SelectRandomPlayer().Damage(currentEnemy._enemy.AttackPower);
             SetCurrentGameState(_gsSelectPlayer);
             SetCurrentGuideMessage(DataGame.SELECT_PLAYER);
@@ -206,6 +207,13 @@ namespace GranGames.Managers
                 GameOver(false);
         }
 
+        private void DataStatics()
+        {
+            _playerDatabase.TotalBattles += 1;
+            foreach(var player in _listPlayerPrefabSelected)
+                player._character.Xp += player._character.XpPointsPerVictory;
+        }
+
         /*
          * PopUp loaded of the Resources folder
          * 
@@ -218,6 +226,7 @@ namespace GranGames.Managers
 
         IEnumerator DelayClose(bool value)
         {
+            DataStatics();
             yield return new WaitForSeconds(2f);
             DataGame.win = value;
             GameObject.Instantiate(Resources.Load(DataGame.PREFAB_ENDGAME) as GameObject);

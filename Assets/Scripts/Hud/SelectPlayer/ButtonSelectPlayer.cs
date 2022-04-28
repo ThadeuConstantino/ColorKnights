@@ -43,6 +43,8 @@ namespace GranGames.Hud
             _not.SetActive(false);
             _img.gameObject.SetActive(true);
             _img.sprite = Player._imageMenu;
+
+            _player.CalculateLogicalPlayer();
         }
 
         public void EnableBg(bool value)

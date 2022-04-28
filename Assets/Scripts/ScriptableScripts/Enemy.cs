@@ -12,13 +12,13 @@ namespace GranGames.Scriptable
         [Header("Data")]
         [SerializeField]
         [Range(1, 100)]
-        private int health;
+        private float health;
         [SerializeField]
-        [Range(1, 10)]
-        private int attackpower;
+        [Range(1, 100)]
+        private float attackpower;
       
         //Getters and Setters
-        public int Health { get => health; set => health = value; }
-        public int AttackPower { get => attackpower; set => attackpower = value; }
+        public float Health { get => health; set => health = value; }
+        public float AttackPower { get => attackpower; set => attackpower = value; }
     }
 }

@@ -18,15 +18,23 @@ namespace GranGames.Scriptable
 
         [BoxGroup("Battles")]
         [Header("Minimum battles for new player - 'TotalBattles/BattlesNewPlayer'")]
-        [Range(1,10)]
+        [Range(1, 100)]
         public int BattlesNewPlayer;
 
         [BoxGroup("Battles")]
+        [Range(1, 4)]
+        [Header("Start Players in Battle")]
+        public int StartPlayersBattle;
+
+        [BoxGroup("Battles")]
         [Header("Total of Battles")]
-        public int TotalBattles;
+        [SerializeField]
+        private int totalBattles;
 
         [Header("Players Selected")]
         public List<Character> _selectedPlayers;
+
+        public int TotalBattles { get => totalBattles; set => totalBattles = value; }
     }
 
 }

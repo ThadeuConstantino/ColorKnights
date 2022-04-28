@@ -44,7 +44,7 @@ namespace GranGames.Hud
         {
             _name.text = _player.StrName;
             _level.text = _player.Level.ToString();
-            _attackPower.text = _player.AttackPower.ToString();
+            _attackPower.text = _player.AuxAttack.ToString();
             _xp.text = _player.Xp.ToString();
         }
     }

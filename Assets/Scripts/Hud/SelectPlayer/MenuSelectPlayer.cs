@@ -29,7 +29,7 @@ namespace GranGames.Hud
                 //SaveLoad
                 _hudPlayer.DataPlayer(_playerDatabase._selectedPlayers.Contains(_player));
                 _hudPlayer._Start();
-                _hudPlayer.EnableBg(i < (_playerDatabase.TotalBattles / _playerDatabase.BattlesNewPlayer));
+                _hudPlayer.EnableBg(i < _playerDatabase.StartPlayersBattle + (_playerDatabase.TotalBattles / _playerDatabase.BattlesNewPlayer));
 
                 i++;
             }

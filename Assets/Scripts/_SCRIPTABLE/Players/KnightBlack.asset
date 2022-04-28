@@ -24,7 +24,9 @@ MonoBehaviour:
   strName: Black
   health: 10
   attackpower: 1
-  xpNewLevel: 5
-  level: 1
-  xp: 0
+  XpToNextLevel: 5
+  XpPointsPerVictory: 1
+  PercentIncrementPerLevel: 10
+  xp: 5
+  level: 2
   _imageMenu: {fileID: 21300000, guid: 44b95cb305425a34dad1bed6c2f1639c, type: 3}

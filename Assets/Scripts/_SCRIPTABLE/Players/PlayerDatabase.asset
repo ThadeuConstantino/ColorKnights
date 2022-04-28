@@ -33,8 +33,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 14422771ac127384bb99932879ea6375, type: 2}
   - {fileID: 11400000, guid: 0c1a46ffda1ecc347b22ebf815f4118e, type: 2}
   totalPlayersGroup: 2
-  BattlesNewPlayer: 10
-  TotalBattles: 20
+  BattlesNewPlayer: 5
+  StartPlayersBattle: 3
+  totalBattles: 0
   _selectedPlayers:
   - {fileID: 11400000, guid: bd10aeb7daec78e42ba98082e97e4594, type: 2}
   - {fileID: 11400000, guid: fc583d5e781d0ae4689cb8487b870887, type: 2}

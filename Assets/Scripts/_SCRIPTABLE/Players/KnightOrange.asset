@@ -22,9 +22,11 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   strName: Orange
+  level: 1
   health: 10
   attackpower: 1
-  xpNewLevel: 5
-  level: 1
+  XpToNextLevel: 5
+  XpPointsPerVictory: 1
+  PercentIncrementPerLevel: 10
   xp: 0
   _imageMenu: {fileID: 21300000, guid: 90ef1dae019753243b6e6b6f4021acd9, type: 3}

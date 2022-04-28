@@ -18,7 +18,7 @@ namespace GranGames.Hud
             auxLifeBar._bar.fillAmount = 1f;
         }
 
-        public void UpdateDataLife(int damage, int currentHealth, int totalHealth)
+        public void UpdateDataLife(float damage, float currentHealth, float totalHealth)
         {
             float result = (currentHealth * auxLifeBar._bar.fillAmount) / totalHealth;
             auxLifeBar._bar.fillAmount = result;

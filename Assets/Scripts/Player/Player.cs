@@ -11,7 +11,7 @@ namespace GranGames.Pl
         public Character _character;
         public GameObject _clamp;
 
-        private int healthy;
+        private float healthy;
         private bool isDead;
         private Animator _anim;
         private SpriteRenderer _damageRenderer;
@@ -20,15 +20,21 @@ namespace GranGames.Pl
 
         //Getters and Setters
         public bool IsDead { get => isDead; set => isDead = value; }
-        public int Healthy { get => healthy; set => healthy = value; }
+        public float Healthy { get => healthy; set => healthy = value; }
         public Animator Anim { get => _anim; set => _anim = value; }
         public SpriteRenderer DamageRenderer { get => _damageRenderer; set => _damageRenderer = value; }
 
         private void Start()
         {
-            Healthy = _character.Health;
             Anim = GetComponent<Animator>();
             DamageRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        private void OnEnable()
+        {
+            Healthy = _character.Health;
+            
+            _character.CalculateLogicalPlayer();
         }
 
         public void AnimDead()
@@ -47,7 +53,7 @@ namespace GranGames.Pl
             Anim.SetTrigger("isIdle");
         }
 
-        public void Damage(int value)
+        public void Damage(float value)
         {
             Healthy -= value;
             _lifeBarHud.UpdateDataLife(value, Healthy, _character.Health);
