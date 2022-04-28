@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using GranGames.Static;
 using UnityEngine.SceneManagement;
-using GranGames.Pl;
 
 namespace GranGames.Hud
 {

@@ -1,4 +1,5 @@
 ﻿using GranGames.Managers;
+using GranGames.Scriptable;
 using GranGames.Static;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,7 +14,7 @@ namespace GranGames.Menu
 
         private void Start()
         {
-            StartedData(false);
+            StartedData(ES3.FileExists());
         }
 
         private void StartedData(bool value)
@@ -25,12 +26,13 @@ namespace GranGames.Menu
 
         public void NewGame()
         {
-            LoadScene(DataGame.GAMEPLAY_SCENE);
+            SaveLoadManager.Instance.NewGame();
+            
         }
 
         public void Continue()
         {
-            LoadScene(DataGame.GAMEPLAY_SCENE);
+            SaveLoadManager.Instance.Continue();
         }
 
         public void Quit()
@@ -38,9 +40,5 @@ namespace GranGames.Menu
             Application.Quit();
         }
 
-        private void LoadScene(string value)
-        {
-            SceneManager.LoadScene(value, LoadSceneMode.Single);
-        }
     }
 }

@@ -1,5 +1,6 @@
 using GranGames.Hud;
 using GranGames.Managers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,8 +11,8 @@ namespace GranGames.Pl
     {
         public Character _character;
         public GameObject _clamp;
-
         private float healthy;
+
         private bool isDead;
         private Animator _anim;
         private SpriteRenderer _damageRenderer;
@@ -20,20 +21,20 @@ namespace GranGames.Pl
 
         //Getters and Setters
         public bool IsDead { get => isDead; set => isDead = value; }
-        public float Healthy { get => healthy; set => healthy = value; }
         public Animator Anim { get => _anim; set => _anim = value; }
         public SpriteRenderer DamageRenderer { get => _damageRenderer; set => _damageRenderer = value; }
+        public float Healthy { get => healthy; set => healthy = value; }
 
         private void Start()
         {
             Anim = GetComponent<Animator>();
             DamageRenderer = GetComponent<SpriteRenderer>();
+            Healthy = _character.Health;
+            IsDead = false;
         }
 
         private void OnEnable()
         {
-            Healthy = _character.Health;
-            
             _character.CalculateLogicalPlayer();
         }
 
@@ -57,7 +58,9 @@ namespace GranGames.Pl
         {
             Healthy -= value;
             _lifeBarHud.UpdateDataLife(value, Healthy, _character.Health);
-            StartCoroutine(ColorDamage());
+            
+            if(value>0)
+                StartCoroutine(ColorDamage());
 
             if (Healthy <= 0)
                 AnimDead();
@@ -85,11 +88,21 @@ namespace GranGames.Pl
 
         private void OnMouseEnter()
         {
+            if (GamePlayManager.Instance.CurrentGameState != GamePlayManager.Instance._gsSelectPlayer
+                && GamePlayManager.Instance.CurrentGameState != GamePlayManager.Instance._gsSelectEnemy
+                && !IsDead)
+                return;
+
             GamePlayManager.Instance.OnOverPlayer.Invoke(_character, true);
         }
 
         private void OnMouseExit()
         {
+            if (GamePlayManager.Instance.CurrentGameState != GamePlayManager.Instance._gsSelectPlayer
+                && GamePlayManager.Instance.CurrentGameState != GamePlayManager.Instance._gsSelectEnemy
+                && !IsDead)
+                return;
+
             GamePlayManager.Instance.OnOverPlayer.Invoke(_character, false);
         }
     }

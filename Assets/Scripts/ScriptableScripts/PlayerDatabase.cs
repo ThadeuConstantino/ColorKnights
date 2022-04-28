@@ -26,7 +26,7 @@ namespace GranGames.Scriptable
         [Header("Start Players in Battle")]
         public int StartPlayersBattle;
 
-        [BoxGroup("Battles")]
+        [BoxGroup("Dynamic fill - Prog")]
         [Header("Total of Battles")]
         [SerializeField]
         private int totalBattles;

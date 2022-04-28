@@ -31,7 +31,7 @@ namespace GranGames.Hud
 
         private bool isEnable;
 
-        private IEnumerator coroutine;
+        private IEnumerator coroutineTooltip;
 
         //Getters and Setters
         public Character Player { get => _player; set => _player = value; }
@@ -78,13 +78,13 @@ namespace GranGames.Hud
             if (!isEnable)
                 return;
 
-            coroutine = DelayOpenToolTip();
-            StartCoroutine(coroutine);
+            coroutineTooltip = DelayOpenToolTip();
+            StartCoroutine(coroutineTooltip);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            StopCoroutine(coroutine);
+            StopCoroutine(coroutineTooltip);
 
             if (isOpenTooltip || !isEnable)
             {
@@ -99,7 +99,7 @@ namespace GranGames.Hud
         IEnumerator DelayOpenToolTip()
         {
             isOpenTooltip = false;
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
             isOpenTooltip = true;
             _tooltip.gameObject.SetActive(true);
             _tooltip.LoadData(_player);

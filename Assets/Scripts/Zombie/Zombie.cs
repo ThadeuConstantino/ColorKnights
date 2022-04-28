@@ -1,6 +1,7 @@
 using GranGames.Hud;
 using GranGames.Managers;
 using GranGames.Scriptable;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -71,6 +72,11 @@ namespace GranGames.Boss
                 return;
 
             GamePlayManager.Instance.OnSelectEnemy.Invoke(this);
+        }
+
+        private void OnApplicationQuit()
+        {
+            
         }
     }
 }

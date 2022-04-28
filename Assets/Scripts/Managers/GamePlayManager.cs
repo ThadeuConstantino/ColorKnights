@@ -13,7 +13,8 @@ namespace GranGames.Managers
     public class GamePlayManager : Singleton<GamePlayManager>
     {
         [Header("Player Data Points")]
-        public List<Player> _listPlayerPrefabSelected;
+        [SerializeField]
+        private List<Player> listPlayerPrefabSelected;
         private List<Player> _auxListPlayerPrefabSelected;
         public List<GameObject> _listPlayerSpawnPoints;
         public List<Player> _listPlayerPrefab;
@@ -50,18 +51,18 @@ namespace GranGames.Managers
 
         //Getters and Setters
         public GameState CurrentGameState { get => _CurrentGameState; set => _CurrentGameState = value; }
-        
+        public List<Player> ListPlayerPrefabSelected { get => listPlayerPrefabSelected; set => listPlayerPrefabSelected = value; }
 
         private void Start()
         {
-            _listPlayerPrefabSelected.Clear();
+            ListPlayerPrefabSelected.Clear();
             _auxListPlayerPrefabSelected = new List<Player>();
             _auxListPlayerPrefabSelected.Clear();
 
             foreach (var player in _listPlayerPrefab)
             {
                 if(_playerDatabase._selectedPlayers.Contains(player.GetComponent<Player>()._character))
-                    _listPlayerPrefabSelected.Add(player);
+                    ListPlayerPrefabSelected.Add(player);
             }
 
             SpawnPlayers();
@@ -88,7 +89,7 @@ namespace GranGames.Managers
         {
             int i = 0;
             GameObject clone;
-            foreach (var player in _listPlayerPrefabSelected)
+            foreach (var player in ListPlayerPrefabSelected)
             {
                 clone = Instantiate(player.gameObject, _listPlayerSpawnPoints[i].transform);
                 _auxListPlayerPrefabSelected.Add(clone.GetComponent<Player>());
@@ -98,7 +99,8 @@ namespace GranGames.Managers
 
         private void SpawnEnemies()
         {
-            Instantiate(_ListEnemyPrefab[Random.Range(0, _ListEnemyPrefab.Count)], _EnemySpawnPoints.transform);
+            GameObject go = Instantiate(_ListEnemyPrefab[Random.Range(0, _ListEnemyPrefab.Count)], _EnemySpawnPoints.transform);
+            currentEnemy = go.GetComponent<Zombie>();
         }
 
         private void SetCurrentGameState(GameState gs)
@@ -210,7 +212,7 @@ namespace GranGames.Managers
         private void DataStatics()
         {
             _playerDatabase.TotalBattles += 1;
-            foreach(var player in _listPlayerPrefabSelected)
+            foreach(var player in ListPlayerPrefabSelected)
                 player._character.Xp += player._character.XpPointsPerVictory;
         }
 
@@ -230,7 +232,6 @@ namespace GranGames.Managers
             yield return new WaitForSeconds(2f);
             DataGame.win = value;
             GameObject.Instantiate(Resources.Load(DataGame.PREFAB_ENDGAME) as GameObject);
-            Time.timeScale = 0f;
         }
 
         private void OnApplicationQuit()

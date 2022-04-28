@@ -37,5 +37,5 @@ MonoBehaviour:
   StartPlayersBattle: 3
   totalBattles: 0
   _selectedPlayers:
-  - {fileID: 11400000, guid: bd10aeb7daec78e42ba98082e97e4594, type: 2}
+  - {fileID: 11400000, guid: 907890d973e67f045a9ce52be798aac0, type: 2}
   - {fileID: 11400000, guid: fc583d5e781d0ae4689cb8487b870887, type: 2}

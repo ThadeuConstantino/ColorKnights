@@ -1,6 +1,7 @@
 using GranGames.Managers;
 using GranGames.Scriptable;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace GranGames.Hud
 {
@@ -11,11 +12,14 @@ namespace GranGames.Hud
         private GameObject _prefabLifeBar;
         private LifeBar auxLifeBar;
 
+        public UnityEvent OnInitialized;
+
         private void OnEnable()
         {
             _clone = GameObject.Instantiate(_prefabLifeBar, GamePlayManager.Instance._canvasHudLifeBar.transform);
             auxLifeBar = _clone.GetComponent<LifeBar>();
             auxLifeBar._bar.fillAmount = 1f;
+            OnInitialized.Invoke();
         }
 
         public void UpdateDataLife(float damage, float currentHealth, float totalHealth)

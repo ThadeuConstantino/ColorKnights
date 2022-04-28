@@ -17,7 +17,7 @@ namespace GranGames.Static
 
         //Data Game Status
         public static string CURRENT_TEXT_STATE = "...";
-        public const string SELECT_PLAYER = "Came on... Choose one Player to attack";
+        public const string SELECT_PLAYER = "Come on... Choose one Player to attack";
         public const string PLAYER_ATTACK = "Yeah... Let's Rock";
         public const string SELECT_ENEMY = "kick him... Choose an enemy to catch";
         public const string ENEMY_ATTACK = "Please, Wait... Enemy attacking. So sorry";
